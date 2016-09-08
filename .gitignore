@@ -90,7 +90,6 @@ ENV/
 
 
 *.db
-*.md
 *.pid
 *.pyc
 *.sck
