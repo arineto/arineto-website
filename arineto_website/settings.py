@@ -16,6 +16,9 @@ from unipath import Path
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = Path(__file__).absolute().ancestor(2)
 
+ADMINS = (
+        ('Jose Neto', 'arineto30@gmail.com')
+    )
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.10/howto/deployment/checklist/
@@ -26,7 +29,7 @@ SECRET_KEY = 'q7evq#5fa3qw0c^c8*nv(5u&g2&+4r&@*p6&@-ke*cf)g#d%d6'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -81,13 +84,9 @@ WSGI_APPLICATION = 'arineto_website.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/1.10/ref/settings/#databases
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
-}
+import dj_database_url  # noqa
+DATABASES = {}
+DATABASES['default'] = dj_database_url.config()
 
 
 # Password validation
@@ -126,10 +125,15 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
 
-STATICFILES_DIRS = (BASE_DIR.child('static'), )
+STATIC_ROOT = 'staticfiles'
 STATIC_URL = '/static/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'static'),
+)
+
 MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 
 try:
