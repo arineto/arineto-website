@@ -19,5 +19,6 @@ from django.contrib import admin
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^blog/', include('apps.blog.urls', namespace='blog')),
     url(r'^', include('apps.landing_page.urls', namespace='landing')),
 ]

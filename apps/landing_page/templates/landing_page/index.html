@@ -1,7 +1,10 @@
 {% extends 'base.html' %}
 
+{% block navbar %}
+  {% include 'landing_page/_navbar.html' %}
+{% endblock %}
+
 {% block content %}
-  {% include 'examples/_navbar.html' %}
   {% include 'examples/_header.html' %}
   {% include 'examples/_about.html' %}
   {% include 'examples/_services.html' %}
