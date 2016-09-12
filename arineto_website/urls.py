@@ -16,9 +16,21 @@ Including another URLconf
 from django.conf.urls import url
 from django.conf.urls import include
 from django.contrib import admin
+from django.conf import settings
+
+from django.views import static
+
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^blog/', include('apps.blog.urls', namespace='blog')),
     url(r'^', include('apps.landing_page.urls', namespace='landing')),
 ]
+
+if settings.DEBUG:
+    urlpatterns += [
+        url(
+            r'^media/(?P<path>.*)$', static.serve,
+            {'document_root': settings.MEDIA_ROOT}
+        )
+    ]
