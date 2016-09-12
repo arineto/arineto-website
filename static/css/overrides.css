@@ -1,3 +1,7 @@
+body{
+    font-family: 'Open Sans','Helvetica Neue',Arial,sans-serif !important;
+}
+
 section.small{
     padding: 80px 0 40px;
 }
@@ -39,4 +43,12 @@ h3.post-title{
 a.post-row{
     cursor: pointer;
     color: #000;
+}
+
+p.justify{
+    text-align: justify;
+}
+
+#load-more{
+    cursor: pointer;
 }

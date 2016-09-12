@@ -1,5 +1,5 @@
 from django.contrib import admin
-from apps.blog.models import Post, Tag
+from apps.blog.models import Post, Tag, Comment
 from apps.blog.utils.admin import release_posts
 
 
@@ -21,3 +21,6 @@ class TagAdmin(admin.ModelAdmin):
     list_display = ('name',)
     search_fields = ('name',)
     ordering = ('name',)
+
+
+admin.site.register(Comment)

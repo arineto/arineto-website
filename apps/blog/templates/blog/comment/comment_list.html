@@ -1,0 +1,11 @@
+{% for comment in object_list %}
+    <div class="row">
+        <div class="col-sm-12">
+            <h4>{{ comment.author }} - {{ comment.posted|date:'d/m/Y' }}</h4>
+            <p class="justify">{{ comment.content }}</p>
+        </div>
+    </div>
+{% endfor %}
+<script type="text/javascript">
+    comment_has_next = "{{ page_obj.has_next }}";
+</script>

@@ -3,10 +3,13 @@ from django.views.generic import ListView
 from apps.blog.models import Post
 
 
+__all__ = ['PostListView', 'PostDetailView']
+
+
 class PostListView(ListView):
 
     model = Post
-    template_name = 'blog/post_list.html'
+    template_name = 'blog/post/post_list.html'
     paginate_by = 5
 
     def get_queryset(self):
@@ -17,4 +20,4 @@ class PostListView(ListView):
 class PostDetailView(DetailView):
 
     model = Post
-    template_name = 'blog/post_details.html'
+    template_name = 'blog/post/post_details.html'
