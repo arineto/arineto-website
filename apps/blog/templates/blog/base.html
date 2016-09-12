@@ -3,25 +3,3 @@
 {% block navbar %}
   {% include 'blog/_navbar.html' %}
 {% endblock %}
-
-{% block content %}
-<section class="bg-primary small">
-    <div class="container">
-        <div class="col-lg-8 col-lg-offset-2 text-center">
-            <h1 id="section-heading">Blog</h1>
-            <hr class="light">
-            <p class="text-faded">Here you can find all the posts made by me!</p>
-        </div>
-    </div>
-</section>
-
-<section class="small-top small-bottom">
-    <div class="container">
-        {% for post in object_list %}
-            {% include 'blog/_post_row.html' with post=post %}
-        {% endfor %}
-    </div>
-</section>
-
-{% include 'blog/_paginator.html' %}
-{% endblock %}

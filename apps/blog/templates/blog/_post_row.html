@@ -1,10 +1,12 @@
-<div class="row">
-    <div class="col-sm-12">
-        <h3 class="post-title">{{ post.released_at|date:'d/m/Y' }} - {{ post.title }}</h3>
-        <p>{{ post.content|truncatechars:250 }}</p>
-        {% for tag in post.tags.all %}
-            <span class="tag">{{ tag.name }}</span>
-        {% endfor %}
-        <hr>
+<a class="post-row" href="{% url 'blog:post_details' post.slug %}">
+    <div class="row">
+        <div class="col-sm-12">
+            <h3 class="post-title">{{ post.released_at|date:'d/m/Y' }} - {{ post.title }}</h3>
+            <p>{{ post.content|truncatechars:250 }}</p>
+            {% for tag in post.tags.all %}
+                <span class="tag">{{ tag.name }}</span>
+            {% endfor %}
+            <hr>
+        </div>
     </div>
-</div>
+</a>

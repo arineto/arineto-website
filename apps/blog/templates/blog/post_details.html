@@ -1,0 +1,25 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+<section class="bg-primary small">
+    <div class="container">
+        <div class="col-lg-8 col-lg-offset-2 text-center">
+            <h1 id="section-heading">{{ object.title }}</h1>
+            <hr class="light">
+            <p class="text-faded">{{ post.released_at|date:'d/m/Y' }}</p>
+        </div>
+    </div>
+</section>
+
+<section class="small-top small-bottom">
+    <div class="container">
+        <p style="text-algin:justify;">{{ object.content|linebreaksbr }}</p>
+        <div style="padding-top:20px;">
+            Tags:
+            {% for tag in post.tags.all %}
+            <span class="tag tag">{{ tag.name }}</span>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endblock %}

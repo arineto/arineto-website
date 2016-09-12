@@ -27,6 +27,16 @@ span.tag{
     color: #fff;
 }
 
+span.tag-light{
+    background-color: #fff;
+    color: #F05F40;
+}
+
 h3.post-title{
     margin-bottom: 20px;
+}
+
+a.post-row{
+    cursor: pointer;
+    color: #000;
 }
