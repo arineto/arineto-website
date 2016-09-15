@@ -1,3 +1,4 @@
+from django.contrib import messages
 from django.core.urlresolvers import reverse
 from django.views.generic import CreateView
 from django.views.generic import ListView
@@ -38,6 +39,7 @@ class PostDetailView(CreateView):
         return kwargs
 
     def get_success_url(self):
+        messages.success(self.request, "Comment created with success.")
         post = Post.objects.get(slug=self.kwargs['slug'])
         return reverse('blog:post_details', args=(post.slug,))
 
