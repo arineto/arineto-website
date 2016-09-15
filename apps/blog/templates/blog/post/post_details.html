@@ -4,8 +4,7 @@
 
 {% block extra_scripts %}
     <script type="text/javascript">
-        var comments_url = "{% url 'blog:comment_list' %}?post_id={{ object.pk }}&page="
-        var form_url = "{% url 'blog:comment_create' %}?post_id={{ object.pk }}"
+        var comments_url = "{% url 'blog:comment_list' %}?post_id={{ object.pk }}&page=";
     </script>
     <script type="text/javascript" src="{% static 'js/comments.js' %}"></script>
 {% endblock %}
@@ -26,8 +25,8 @@
         <p class="justify">{{ object.content|linebreaksbr }}</p>
         <div style="padding-top:20px;">
             Tags:
-            {% for tag in post.tags.all %}
-            <span class="tag tag">{{ tag.name }}</span>
+            {% for tag in object.tags.all %}
+                <span class="tag tag">{{ tag.name }}</span>
             {% endfor %}
         </div>
         <hr>
@@ -49,7 +48,7 @@
 
 <section class="no-top small-bottom">
     <div class="container">
-        <div id="comment-form"></div>
+        {% include 'blog/comment/comment_form.html' %}
     </div>
 </section>
 {% endblock %}

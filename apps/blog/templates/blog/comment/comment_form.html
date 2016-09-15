@@ -2,7 +2,7 @@
 
 <h3>Leave your comment</h3>
 <br>
-<form name="sentMessage" id="contactForm">
+<form id="comment-form" action="" method="POST">
     {% csrf_token %}
     <div class="row">
         <div class="col-md-6">
@@ -19,6 +19,7 @@
         <div class="col-md-6">
             {% bootstrap_field form.content show_label=False %}
         </div>
+        {% bootstrap_field form.post show_label=False %}
         <div class="clearfix"></div>
         <div class="col-lg-12 text-center">
             <br>

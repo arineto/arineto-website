@@ -11,8 +11,6 @@ post_patterns = [
 
 comment_patterns = [
     url(r'^list/$', views.CommentListView.as_view(), name='comment_list'),
-    url(r'^create/$', views.CommentCreateView.as_view(),
-        name='comment_create'),
 ]
 
 urlpatterns = [

@@ -52,3 +52,7 @@ p.justify{
 #load-more{
     cursor: pointer;
 }
+
+textarea {
+    resize: none;
+}
