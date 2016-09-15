@@ -5,6 +5,7 @@
 {% block extra_scripts %}
     <script type="text/javascript">
         var comments_url = "{% url 'blog:comment_list' %}?post_id={{ object.pk }}&page="
+        var form_url = "{% url 'blog:comment_create' %}?post_id={{ object.pk }}"
     </script>
     <script type="text/javascript" src="{% static 'js/comments.js' %}"></script>
 {% endblock %}
@@ -33,13 +34,22 @@
     </div>
 </section>
 
+{% if comments %}
+    <section class="no-top no-bottom">
+        <div class="container">
+            <h3>Comments</h3>
+            <div id="comments"></div>
+            <div class="text-center">
+                <a id="load-more">Load More...</a>
+            </div>
+            <hr>
+        </div>
+    </section>
+{% endif %}
+
 <section class="no-top small-bottom">
     <div class="container">
-        <h3>Comments</h3>
-        <div id="comments"></div>
-        <div class="text-center">
-            <a id="load-more">Load More...</a>
-        </div>
+        <div id="comment-form"></div>
     </div>
 </section>
 {% endblock %}

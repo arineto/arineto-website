@@ -21,3 +21,8 @@ class PostDetailView(DetailView):
 
     model = Post
     template_name = 'blog/post/post_details.html'
+
+    def get_context_data(self, **kwargs):
+        kwargs = super(PostDetailView, self).get_context_data(**kwargs)
+        kwargs['comments'] = self.object.comment_set.exists()
+        return kwargs

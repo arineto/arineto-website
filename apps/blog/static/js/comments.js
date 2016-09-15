@@ -3,6 +3,7 @@ var page_number = 1;
 
 $(document).ready(function(){
     load_comments();
+    get_comment_form();
 });
 
 $("#load-more").on( "click", function() {
@@ -19,4 +20,14 @@ function load_comments(){
             $("#load-more").remove();
         }
     });
+}
+
+function get_comment_form(){
+    $.get(form_url, function(data) {
+        $("#comment-form").append(data);
+    })
+}
+
+function post_comment_form(){
+
 }

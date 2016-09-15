@@ -44,7 +44,8 @@ DJANGO_APPS = [
 ]
 
 THIRD_PARTY_APPS = [
-    'storages'
+    'storages',
+    'bootstrap3',
 ]
 
 LOCAL_APPS = [

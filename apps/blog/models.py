@@ -14,8 +14,10 @@ class Tag(models.Model):
 class Comment(models.Model):
 
     post = models.ForeignKey('blog.Post')
-    author = models.CharField(max_length=100)
-    content = models.TextField()
+    author = models.CharField(max_length=100, verbose_name='Name')
+    email = models.EmailField(null=True, blank=True, verbose_name='Email')
+    website = models.URLField(null=True, blank=True, verbose_name='Website')
+    content = models.TextField(verbose_name='Message')
     posted = models.DateTimeField(auto_now_add=True)
 
     class Meta:
